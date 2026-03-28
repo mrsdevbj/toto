@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Maison Beninoise du Style - Venir de France</title>
+  <style>
+    * { 
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; 
+    }
+
+    :root {
+      --vert: #1f8f7a;
+      --rose-clair: #ffe9e5;
+      --blanc: #ffffff;
+      --texte: #1e3d5c;
+      --accent: #ff8f6e;
+      --noir: #0a0a0a;
+      --gris-clair: #f5f5f5;
+      --ombre: 0 12px 28px rgba(25, 40, 72, 0.18);
+    }
+
+    html { 
+      scroll-behavior: smooth; 
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--gris-clair);
+      color: var(--texte);
+      line-height: 1.6;
+    }
+
+    /* ===== HEADER & NAV ===== */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 2px solid var(--vert);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      color: var(--vert);
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--texte);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--vert);
+      background: rgba(31, 143, 122, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== HERO SECTION - ANIMATED ===== */
+    .hero {
+      margin-top: 70px;
+      background: var(--noir);
+      color: var(--blanc);
+      padding: 6rem 2rem;
+      overflow: hidden;
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(31, 143, 122, 0.2) 0%, rgba(255, 143, 110, 0.2) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+    }
+
+    .animated-text {
+      display: flex;
+      gap: 2rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .scroll-text {
+      display: inline-block;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--accent);
+      white-space: nowrap;
+      animation: scrollFromRight 8s linear infinite;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+      padding: 0.25rem 0;
+      min-width: 100%;
+    }
+
+    @keyframes scrollFromRight {
+      0% {
+        transform: translateX(100vw);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-100vw);
+        opacity: 0;
+      }
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 2rem 0 1rem;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #ddd;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      animation: fadeInUp 1.4s ease-out;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 1.6s ease-out;
+    }
+
+    .btn {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--blanc);
+    }
+
+    .btn-primary:hover {
+      background: #ff7a5c;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 143, 110, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--blanc);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    main {
+      padding-top: 0;
+    }
+
+    section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--vert);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+
+    .divider {
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+
+    /* ===== PRODUITS SECTION ===== */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--ombre);
+      transition: all 0.3s ease;
+      border: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+    }
+
+    .product-info {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--texte);
+      margin-bottom: 0.5rem;
+    }
+
+    .product-desc {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .product-price {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .order-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: fit-content;
+      padding: 0.3rem;
+    }
+
+    .quantity-selector button {
+      width: 30px;
+      height: 30px;
+      border: none;
+      background: var(--gris-clair);
+      cursor: pointer;
+      font-weight: 700;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .quantity-selector button:hover {
+      background: var(--vert);
+      color: white;
+    }
+
+    .quantity-selector span {
+      min-width: 30px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .btn-order {
+      background: var(--vert);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-order:hover {
+      background: #156b58;
+      transform: translateY(-2px);
+    }
+
+    .order-options {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .option-btn {
+      flex: 1;
+      padding: 0.7rem;
+      border: 2px solid var(--accent);
+      background: white;
+      color: var(--accent);
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .option-btn.active {
+      background: var(--accent);
+      color: white;
+    }
+
+    .option-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ===== IMAGE SECTIONS ===== */
+    .image-section {
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 15px;
+      margin-bottom: 3rem;
+      box-shadow: var(--ombre);
+    }
+
+    .image-section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      color: var(--vert);
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .image-placeholder {
+      position: relative;
+      padding-bottom: 100%;
+      background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px dashed #ccc;
+    }
+
+    .image-placeholder img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-placeholder.empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-weight: 600;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .image-placeholder.empty::before {
+      content: '📷 Image à ajouter';
+    }
+
+    /* ===== CONTACT FORM ===== */
+    .contact-section {
+      background: linear-gradient(135deg, var(--noir) 0%, #1a1a2e 100%);
+      color: white;
+      padding: 5rem 2rem;
+      margin: 3rem auto;
+      border-radius: 15px;
+    }
+
+    .contact-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-section .section-title h2,
+    .contact-section .section-title p {
+      color: white;
+    }
+
+    .form-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.9rem;
+      border: 2px solid #444;
+      border-radius: 8px;
+      background: #222;
+      color: white;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255, 143, 110, 0.2);
+      background: #2a2a2a;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .order-type {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .radio-option {
+      flex: 1;
+    }
+
+    .radio-option input[type="radio"] {
+      display: none;
+    }
+
+    .radio-option label {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem;
+      border: 2px solid #444;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: #222;
+      margin-bottom: 0;
+    }
+
+    .radio-option input[type="radio"]:checked + label {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    .radio-option label::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border: 2px solid #666;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .radio-option input[type="radio"]:checked + label::before {
+      background: white;
+      border-color: white;
+      box-shadow: inset 0 0 0 4px var(--accent);
+    }
+
+    .form-grid-2 {
+      grid-column: 1 / -1;
+    }
+
+    .form-grid-2 > div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .submit-btn {
+      grid-column: 1 / -1;
+      padding: 1.2rem 3rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background: #ff7a5c;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255, 143, 110, 0.4);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--noir);
+      color: #ccc;
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 2px solid var(--accent);
+      font-size: 1rem;
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+    }
+
+    footer strong {
+      color: var(--accent);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .nav-links {
+        gap: 0.9rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .hero {
+        min-height: auto;
+        margin-top: 8rem;
+        padding: 7rem 1.25rem 3rem;
+      }
+
+      .hero-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 0.75rem;
+      }
+
+      .scroll-text {
+        font-size: 2rem;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .hero-description {
+        font-size: 0.95rem;
+        max-width: 100%;
+        margin: 0 auto 1.5rem;
+      }
+
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+
+      .form-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid-2 > div {
+        grid-template-columns: 1fr;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .cta-buttons .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-links {
+        gap: 0.75rem;
+      }
+
+      .hero {
+        margin-top: 11rem;
+        padding: 6rem 1rem 2.5rem;
+      }
+
+      .hero-content {
+        padding: 0 0.5rem;
+      }
+
+      .scroll-text {
+        font-size: 1.4rem;
+        letter-spacing: 0.04em;
+      }
+
+      .hero-title {
+        font-size: 1.6rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+
+      .hero-description {
+        font-size: 0.92rem;
+      }
+
+      .section-title {
+        padding: 0 0.5rem;
+      }
+
+      .section-title h2 {
+        font-size: 1.5rem;
+      }
+
+      .section-title p,
+      .section-title h1,
+      .section-title h2 {
+        line-height: 1.4;
+      }
+
+      .products-grid,
+      .image-grid,
+      .about-grid,
+      .info-grid,
+      .form-layout,
+      .form-grid-2 > div {
+        grid-template-columns: 1fr;
+      }
+
+      .product-card {
+        margin: 0 auto;
+      }
+
+      .product-image {
+        height: 180px;
+      }
+
+      .order-section,
+      .quantity-selector {
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
+      .quantity-selector {
+        justify-content: space-between;
+      }
+
+      .quantity-selector button {
+        flex: 1;
+      }
+
+      .btn-order,
+      .submit-btn {
+        width: 100%;
+      }
+
+      .image-section {
+        padding: 2rem 1rem;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        font-size: 0.95rem;
+      }
+    }
+
+    img,
+    video,
+    iframe {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-grid img {
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .nav-links li {
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER / NAV -->
+  <header>
+    <nav class="nav">
+      <a href="#" class="brand">La Maison Beninoise du Style</a>
+      <ul class="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#produits">Produits</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#contact">Commander</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO SECTION (ANIMATED) -->
+    <section class="hero" id="accueil">
+      <div class="hero-content">
+        <div class="animated-text">
+          <div class="scroll-text">La Maison Beninoise du Style ★ Qualité Beninoise ★ Livraison Rapide ★</div>
+        </div>
+        <h1 class="hero-title">Votre Boutique de Mode Beninoise</h1>
+        <p class="hero-subtitle">100% Produits Beninois - Livraison & Rendez-vous</p>
+        <p class="hero-description">
+          Découvrez notre collection exclusive de vêtements, accessoires et jouets de qualité supérieure. 
+          Depuis 1998, nous proposons l'élégance et le style à des familles du monde entier. 
+          Commandez maintenant et recevez votre colis à domicile ou prenez rendez-vous avec notre équipe.
+        </p>
+        <div class="cta-buttons">
+          <a href="#produits" class="btn btn-primary">Voir les Produits</a>
+          <a href="#contact" class="btn btn-secondary">Passer une Commande</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUITS SECTION 1 -->
+    <section id="produits">
+      <div class="section-title">
+        <h2>Nos Produits - Femmes</h2>
+        <div class="divider"></div>
+        <p>Collection exclusive pour femmes </p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="télécharger (1).jpg" alt="Produit Femme" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Robe Élégante</h3>
+            <p class="product-desc">Robe premium en tissu français haute qualité, parfaite pour tous les occasions.</p>
+            <div class="product-price">45 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="Mango Chemisier - off-white.jpg" alt="Produit Femme" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Chemise Chic</h3>
+            <p class="product-desc">Chemise classique en coton pur, intemporelle et confortable.</p>
+            <div class="product-price">28 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="Women's Casual Slim Blazer with Single Button - White _ M.jpg" alt="Produit Femme" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Blazer Moderne</h3>
+            <p class="product-desc">Blazer tendance pour un look professionnel et élégant.</p>
+            <div class="product-price">52 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="télécharger (2).jpg" alt="Produit Femme" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Pantalon Décontracté</h3>
+            <p class="product-desc">Pantalon confortable et élégant pour le quotidien.</p>
+            <div class="product-price">35 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE PRODUIT: Robe Élégante -->
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">📸 Robe Élégante - Galerie Complète</h3>
+        <div class="image-grid">
+  <img src="télécharger (4).jpg" alt="Robe élégante vue de face">
+  <img src="Wedtrend Women's Vintage Tea Dress, Short Sleeve Cocktail Party Dress Work Church Casual Dress.jpg" alt="Robe élégante vue de profil">
+  <img src="This item is unavailable - Etsy.jpg" alt="Robe élégante détail tissu">
+  <img src="télécharger (5).jpg" alt="Robe élégante en mouvement">
+  <img src="Women's One-Shoulder Waist Satin Dress Sexy Off-The-Shoulder Dress French Hepburn Style High Waist Thin Dress 1950S Retro Dress.jpg" alt="Robe élégante gros plan">
+  <img src="Burgundy Chiffon High Neck Halter Cocktail Dresses With Lace Bodice.jpg" alt="Robe élégante accessoire assorti">
+</div>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+  <div class="image-section">
+    <h3 class="image-section-title">📸 Chemise Chic - Galerie Complète</h3>
+    <div class="image-grid">
+      <img src="télécharger (6).jpg" alt="Chemise chic vue de face">
+      <img src="télécharger (7).jpg" alt="Chemise chic vue de profil">
+      <img src="télécharger (8).jpg" alt="Chemise chic détail tissu">
+      <img src="Women's Elegant Surplice Neck Ruched Waist Blouse, Minimalist Solid Color, Suitable For Spring & Autumn Casual Outfits Spring Clothes For University Fall Cloth For Women.jpg" alt="Chemise chic en mouvement">
+      <img src="Minimal Shirt Mockup _ Modern Apparel Design Template.jpg" alt="Chemise chic gros plan">
+      <img src="Sweetra Women's Business Casual Stylish Shirt With Tie, Fitted Waist, 3_4 Sleeve, Versatile Office Wear.jpg" alt="Chemise chic avec accessoire">
+    </div>
+  </div>
+</section>
+
+
+   <section>
+  <div class="image-section">
+    <h3 class="image-section-title">📸 Blazer Moderne - Galerie Complète</h3>
+    <div class="image-grid">
+      <img src="Alexander Mcqueen - Veste de tailleur cintrée en laine -  Laine - Femme - Noir - Taille 38.jpg" alt="Blazer moderne vue de face">
+      <img src="télécharger (9).jpg" alt="Blazer moderne vue de profil">
+      <img src="Blouson homme marron clair imitation daim - Blazer professionnel moderne à un bouton_.jpg" alt="Blazer moderne détail tissu">
+      <img src="Blouson homme marron clair imitation daim - Blazer professionnel moderne à un bouton_.jpg" alt="Blazer moderne en mouvement">
+      <img src="télécharger (10).jpg" alt="Blazer moderne gros plan">
+      <img src="télécharger (11).jpg" alt="Blazer moderne avec accessoire">
+    </div>
+  </div>
+</section>
+
+
+    <section>
+  <div class="image-section">
+    <h3 class="image-section-title">📸 Pantalon Décontracté - Galerie Complète</h3>
+    <div class="image-grid">
+      <img src="Mode ample droite affaires décontracté Stretch Denim pantalon homme marque pantalon 5 couleurs.jpg" alt="Pantalon décontracté vue de face">
+      <img src="télécharger (12).jpg" alt="Pantalon décontracté vue de profil">
+      <img src="Strips pants.jpg" alt="Pantalon décontracté détail tissu">
+      <img src="télécharger (13).jpg" alt="Pantalon décontracté en mouvement">
+      <img src="télécharger (14).jpg" alt="Pantalon décontracté gros plan">
+      <img src="nice dress.jpg" alt="Pantalon décontracté avec accessoire">
+    </div>
+  </div>
+</section>
+
+
+   <section>
+  <div class="image-section">
+    <h3 class="image-section-title">📸 Galerie - Blazer & Accessoires Femmes</h3>
+    <div class="image-grid">
+      <img src="Blazer uni à nouer - Lie de vin.jpg" alt="Blazer moderne femme vue de face">
+      <img src="télécharger (15).jpg" alt="Blazer moderne femme vue de profil">
+      <img src="télécharger (16).jpg" alt="Blazer moderne femme détail tissu">
+      <img src="Trop canon ce lot de sacs à main !.jpg" alt="Sac à main assorti">
+      <img src="الكلاسيكية الذهب اللون قلادة من الفولاذ المقاوم للصدأ للنساء مجوهرات محدودة حبات اللؤلؤ القلب قلادة قلادة هدية عيد ميلاد - AliExpress 36.jpg" alt="Collier élégant">
+      <img src="Bombas do Tribunal Decoração de strass Camurça Falso Salto Grosso.jpg" alt="Chaussures chic assorties">
+    </div>
+  </div>
+</section>
+
+
+    <!-- PRODUITS SECTION 2 -->
+    <section>
+      <div class="section-title">
+        <h2>Nos Produits - Hommes</h2>
+        <div class="divider"></div>
+        <p>Collection exclusive pour hommes - Style & Confort</p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="fato de 2 peças para homem em poliéster e rayon corte - Temu Brazil.jpg" alt="Produit Homme" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Costume </h3>
+            <p class="product-desc">Costume complet made in France, parfait pour les grands événements.</p>
+            <div class="product-price">85 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="Next T-SHIRT 6 PACK STANDARD - T-shirt basique - multi.jpg" alt="Produit Homme" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">T-Shirt Basique</h3>
+            <p class="product-desc">T-shirt 100% coton, basique et polyvalent pour tous les jours.</p>
+            <div class="product-price">18 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="Men Stretch Skinny Jeans - 109Blue _ 31.jpg" alt="Produit Homme" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Jean </h3>
+            <p class="product-desc">Jean de qualité supérieure, résistant et confortable.</p>
+            <div class="product-price">32 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="télécharger (3).jpg" alt="Produit Homme" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Chemise Officielle</h3>
+            <p class="product-desc">Chemise élégante pour le travail ou les sorties formelles.</p>
+            <div class="product-price">38 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE HOMMES -->
+    <section>
+  <div class="image-section">
+    <h3 class="image-section-title">📸 Costume - Galerie Complète</h3>
+    <div class="image-grid">
+      <img src="Lena Fashion.jpg" alt="Costume élégant vue de face">
+      <img src="YYNUDA Tailleur Femme Ensemble avec Pantalon Revers Blazer 2 Pièces Poches Double Boutonnage Slim Fit Costumes Officiel.jpg" alt="Costume élégant vue de profil">
+      <img src="Boaz – Lässiges Zweiteiliges Anzugset - Marineblau _ L.jpg" alt="Costume élégant détail tissu">
+      <img src="Men's Coats, Jackets & Vests for Sale - eBay.jpg" alt="Costume élégant en mouvement">
+      <img src="télécharger (17).jpg" alt="Costume élégant gros plan">
+      <img src="Manteau formel slim pour hommes, coupe couvertes, olympiques trempés, pour zones me, ensemble de.jpg" alt="Costume élégant avec accessoires">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="image-section">
+    <h3 class="image-section-title">📸 T-Shirt Basique - Galerie Complète</h3>
+    <div class="image-grid">
+      <img src="Gili's EN ÉPONGE - T-shirt basique - 001.jpg" alt="T-shirt basique blanc vue de face">
+      <img src="télécharger (18).jpg" alt="T-shirt basique noir vue de profil">
+      <img src="Next HEAVYWEIGHT 3 PACK - Basic póló - black.jpg" alt="T-shirt basique détail tissu">
+      <img src="télécharger (19).jpg" alt="T-shirt basique porté en mouvement">
+      <img src="REGULAR-FIT SLEEVELESS TOP.jpg" alt="T-shirt basique gros plan col">
+      <img src="Women's & Men's Clothing, Shop Online Fashion.jpg" alt="T-shirt basique avec accessoire">
+    </div>
+  </div>
+</section>
+
+
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">📸 Jean - Galerie Complète</h3>
+        <div class="image-grid">
+          <img src="télécharger (20).jpg" alt="Jean stretch skinny bleu vue de face">
+          <img src="télécharger (21).jpg" alt="Jean stretch skinny bleu vue de profil">
+          <img src="Skinny-jeans Pixlette, Hoher Bund - Unterteile - Baumwolle - Pepe Jeans.jpg" alt="Jean stretch skinny bleu détail tissu">
+          <img src="télécharger (22).jpg" alt="Jean stretch skinny bleu en mouvement">
+          <img src="télécharger (23).jpg" alt="Jean stretch skinny bleu gros plan">
+          <img src="télécharger (24).jpg" alt="Jean stretch skinny bleu avec accessoires">
+        </div>
+      </div>
+    </section>
+
+    <section>
+  <div class="image-section">
+    <h3 class="image-section-title">📸 Chemise Officielle - Galerie Complète</h3>
+    <div class="image-grid">
+      <img src="Sur-chemise double face.jpg" alt="Chemise officielle vue de face">
+      <img src="télécharger (25).jpg" alt="Chemise officielle vue de profil">
+      <img src="Camisa de manga longa listrada de fibra de bambu para homem, antibacteriana, que absorve umidade, resistente, com fechamento de botão e gola dobrável https___share_temu.com_AtfDpS2NfLA via @shoptemu" alt="Chemise officielle détail tissu">
+      <img src="DÃ‰COUVREZ NOS CHEMISES Ã€ MANCHES COURTES POUR HOMMES Retrouvez-les ici _ https___bit_ly_38Hr986.jpg" alt="Chemise officielle portée en mouvement">
+      <img src="télécharger (26).jpg" alt="Chemise officielle gros plan col">
+      <img src="télécharger (27).jpg" alt="Chemise officielle avec accessoire">
+    </div>
+  </div>
+</section>
+
+
+    
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">📸 Galerie - Chemises & Détails Hommes</h3>
+        <div class="image-grid">
+         <img src="télécharger (28).jpg" alt="Chemise officielle vue de face">
+      <img src="télécharger (29).jpg" alt="Chemise officielle vue de profil">
+      <img src="- Uma peça que não dispenso do meu closet CAMISA MÔNICA 🩷 uma de cada cor 🤍__Camisa Mônica Tam P_M_G - R$3x5996.jpg" alt="Chemise officielle détail tissu">
+      <img src="camisa manga longa listrada risca de giz moda feminina _ Shopee Brasil.jpg" alt="Chemise officielle portée en mouvement">
+      <img src="télécharger (30).jpg" alt="Chemise officielle gros plan col">
+      <img src="perfect dress shirts for office use.jpg" alt="Chemise officielle avec accessoire">
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUITS SECTION 3 -->
+    <section>
+      <div class="section-title">
+        <h2>Collection Enfants & Bébés</h2>
+        <div class="divider"></div>
+        <p>Produits doux et confortables pour les plus petits</p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="Our best-selling sweat set since 2019! So good, our customers keep coming back for more colors_ Perfect for first-time buyers – you won’t want just one!❤️.jpg" alt="Produit Enfant" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Ensemble Bébé</h3>
+            <p class="product-desc">Ensemble doux en coton biologique pour bébés, confortable et sûr.</p>
+            <div class="product-price">22 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="Glamulice Vintage Flower Girl Dress 3D Floral Tulle Pageant Dresses Kids Wedding Bridesmaid Formal Holiday Party Gown.jpg" alt="Produit Enfant" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Robe Enfant</h3>
+            <p class="product-desc">Robe colorée et amusante pour les petites filles.</p>
+            <div class="product-price">28 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="Men's Quick-Dry Athletic Shirts.jpg" alt="Produit Enfant" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Polo Enfant</h3>
+            <p class="product-desc">Polo classique pour garçons, parfait pour l'école.</p>
+            <div class="product-price">20 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="2-pack Pijamas de algodón.jpg" alt="Produit Enfant" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Pyjama Bébé</h3>
+            <p class="product-desc">Pyjama doux et sûr pour des nuits tranquilles.</p>
+            <div class="product-price">18 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE ENFANTS & BÉBÉS -->
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">📸 Ensemble Bébé - Galerie Complète</h3>
+        <div class="image-grid">
+        <img src="Our best-selling sweat set since 2019! So good, our customers keep coming back for more colors_ Perfect for first-time buyers – you won’t want just one!❤️ (1).jpg" alt="Chemise officielle vue de face">
+      <img src="Best-seller since 2019 and back in cozy brushed cotton for the season ❄️.jpg" alt="Chemise officielle vue de profil">
+      <img src="Best-seller since 2019 and back in cozy brushed cotton for the season ❄️ (1).jpg" alt="Chemise officielle détail tissu">
+      <img src="télécharger (31).jpg" alt="Chemise officielle portée en mouvement">
+      <img src="télécharger (32).jpg" alt="Chemise officielle gros plan col">
+      <img src="télécharger (33).jpg" alt="Chemise officielle avec accessoire">
+    </div>>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">📸 Robe Enfant - Galerie Complète</h3>
+        <div class="image-grid">
+          <img src="télécharger (34).jpg" alt="Chemise officielle vue de face">
+      <img src="télécharger (35).jpg" alt="Chemise officielle vue de profil">
+      <img src="2pcs Set Baby Girls' Solid Color Pleated Dress And Bag, Spring Autumn.jpg" alt="Chemise officielle détail tissu">
+      <img src="3pcs Set for Little Girls_ Outdoor Sports Flying Sleeve Dress + Bag.jpg" alt="Chemise officielle portée en mouvement">
+      <img src="télécharger (36).jpg" alt="Chemise officielle gros plan col">
+      <img src="Women's & Men's Clothing, Shop Online Fashion (1).jpg" alt="Chemise officielle avec accessoire">
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">📸 Polo Enfant - Galerie Complète</h3>
+        <div class="image-grid">
+          <img src="Bộ 3 áo thun polo tay ngắn thời trang cổ điển cho bé trai, dành cho bé từ 4-7 tuổi, thích hợp mặc vào mùa hè và mùa xuân.jpg" alt="Chemise officielle vue de face">
+      <img src="télécharger (37).jpg" alt="Chemise officielle vue de profil">
+      <img src="Product id_ 1005004023269991.jpg" alt="Chemise officielle détail tissu">
+      <img src="télécharger (38).jpg" alt="Chemise officielle portée en mouvement">
+      <img src="télécharger (39).jpg" alt="Chemise officielle gros plan col">
+      <img src="Do you like this kind of round neck sweatshirt_.jpg" alt="Chemise officielle avec accessoire">
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">📸 Pyjama Bébé - Galerie Complète</h3>
+        <div class="image-grid">
+           <img src="Baby Boys_ Cartoon Bear Long Sleeve Loose Fit Long Pants Casual Homewear In White.jpg" alt="Chemise officielle vue de face">
+      <img src="Ensemble bébé chemise rayée + pantalon marine.jpg" alt="Chemise officielle vue de profil">
+      <img src="télécharger (41).jpg" alt="Chemise officielle détail tissu">
+      <img src="télécharger (42).jpg" alt="Chemise officielle portée en mouvement">
+      <img src="télécharger (42).jpg" alt="Chemise officielle gros plan col">
+      <img src="télécharger (43).jpg" alt="Chemise officielle avec accessoire">
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">📸 Galerie - Pyjamas & Détails Bébés</h3>
+        <div class="image-grid">
+           <img src="Buy Tan Brown Bear Baby Zipped Sleepsuits 4 Pack (0mths-2yrs) from the Next UK online shop.jpg" alt="Chemise officielle vue de face">
+      <img src="télécharger (44).jpg" alt="Chemise officielle vue de profil">
+      <img src="Sleeveless bodysuit.jpg" alt="Chemise officielle détail tissu">
+      <img src="Lit bébé 3 en 1, Berceau bébé, Lit parapluie, avec Matelas Sac de Transport Moustiquaire, 2 jouets d.jpg" alt="Chemise officielle portée en mouvement">
+      <img src="Monmobilierdesign - bebito Berceau lit parapluie 3en1 + moustiquaire et sac de transport Gris - Gris.jpg" alt="Chemise officielle gros plan col">
+      <img src="télécharger (45).jpg" alt="Chemise officielle avec accessoire">
+    </div>
+      </div>
+    </section>
+
+    <!-- PRODUITS SECTION 4 -->
+    <section>
+      <div class="section-title">
+        <h2>Accessoires & Jeans</h2>
+        <div class="divider"></div>
+        <p>Accessoires de mode et jeans de qualité</p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="nora mac.jpg" alt="Jean" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Jean Classique</h3>
+            <p class="product-desc">Jean intemporel en denim premium français.</p>
+            <div class="product-price">42 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="Men's Outdoor Sunshade Trucker Hats Fashion Trendy Baseball Sports Peaked Caps.jpg" alt="Accessoire" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Chapeau Élégant</h3>
+            <p class="product-desc">Chapeau chic pour les beaux jours.</p>
+            <div class="product-price">15 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="KEMISANT Ceinture Homme 2 Paquet, Ceinture Cuir pour Jeans Travail Décontractée,31mm,Taille Fixe.jpg" alt="Accessoire" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Ceinture Premium</h3>
+            <p class="product-desc">Ceinture en cuir véritable, accessoire indispensable.</p>
+            <div class="product-price">12 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="Toys for kids small children 👶👧👦.jpg" alt="Jouet" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Jouet Éducatif</h3>
+            <p class="product-desc">Jouet amusant et éducatif pour enfants.</p>
+            <div class="product-price">25 000 FCFA</div>
+            <div class="order-section">
+              <div class="quantity-selector">
+                <button onclick="decreaseQty(this)">-</button>
+                <span class="qty">1</span>
+                <button onclick="increaseQty(this)">+</button>
+              </div>
+              <button class="btn-order" onclick="addToCart(this)">Ajouter au Panier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE ACCESSOIRES & JEANS -->
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">📸 Jean Classique - Galerie Complète</h3>
+        <div class="image-grid">
+           <img src="télécharger (46).jpg" alt="Chemise officielle vue de face">
+      <img src="Exclusive Bijou Denim High-Waist Wide-Leg Pants By Françoise _ Moda Operandi.jpg" alt="Chemise officielle vue de profil">
+      <img src="waist detail.jpg" alt="Chemise officielle détail tissu">
+      <img src="télécharger (47).jpg" alt="Chemise officielle portée en mouvement">
+      <img src="télécharger (48).jpg" alt="Chemise officielle gros plan col">
+      <img src="Jean droit pour hommes, pantalon Slim, extensible, confortable, doux, en Denim, pour affaires,.jpg" alt="Chemise officielle avec accessoire">
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">📸 Chapeau Élégant - Galerie Complète</h3>
+        <div class="image-grid">
+           <img src="Casquette Plate Homme Vintage.jpg" alt="Chemise officielle vue de face">
+      <img src="Women's & Men's Clothing, Shop Online Fashion (2).jpg" alt="Chemise officielle vue de profil">
+      <img src="télécharger (49).jpg" alt="Chemise officielle détail tissu">
+      <img src="télécharger (50).jpg" alt="Chemise officielle portée en mouvement">
+      <img src="télécharger (51).jpg" alt="Chemise officielle gros plan col">
+      <img src="télécharger (52).jpg" alt="Chemise officielle avec accessoire">
+    </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">📸 Jouet Éducatif - Galerie Complète</h3>
+        <div class="image-grid">
+         <img src="Christeena Thiruvinkal's Amazon Page.jpg" alt="Chemise officielle vue de face">
+      <img src="télécharger (53).jpg" alt="Chemise officielle vue de profil">
+      <img src="2 Años para niños Tela Mueble Montessori Artesanales_.jpg" alt="Chemise officielle détail tissu">
+      <img src="Luksusbaby.jpg" alt="Chemise officielle portée en mouvement">
+      <img src="télécharger (54).jpg" alt="Chemise officielle gros plan col">
+      <img src="New Baby Mum Mom Dad Parent Gift.jpg" alt="Chemise officielle avec accessoire">
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE SECTION 1 -->
+    <section id="galerie">
+      <div class="section-title">
+        <h2>Notre Galerie - Collection Printemps</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="image-section">
+        <h3 class="image-section-title">Nouveatés de Saison - Femmes</h3>
+        <div class="image-grid">
+           <img src="Ensemble chemise ALYSSA - kaki.jpg" alt="Chemise officielle vue de face">
+      <img src="télécharger (55).jpg" alt="Chemise officielle vue de profil">
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE SECTION 2 -->
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">Nouveatés de Saison - Hommes</h3>
+        <div class="image-grid">
+           <img src="Men Letter Patched Detail Flap Pocket Shirt & Drawstring Waist Shorts Without Tee.jpg" alt="Chemise officielle vue de face">
+      <img src="télécharger (56).jpg" alt="Chemise officielle vue de profil">
+   
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE SECTION 3 -->
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">Collections Enfants</h3>
+        <div class="image-grid">
+           <img src="télécharger (57).jpg" alt="Chemise officielle vue de face">
+      <img src="télécharger (58).jpg" alt="Chemise officielle vue de profil">
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE SECTION 4 -->
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">Looks Inspirants</h3>
+        <div class="image-grid">
+          <img src="télécharger (59).jpg" alt="Chemise officielle vue de face">
+      <img src="télécharger (60).jpg" alt="Chemise officielle vue de profil">
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE SECTION 5 -->
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">Style de Vie</h3>
+        <div class="image-grid">
+       <img src="Homens Sólido Botão frontal Camisa & Cintura com cordão Calças Sem Camiseta.jpg" alt="Chemise officielle vue de face">
+      <img src="télécharger (61).jpg" alt="Chemise officielle vue de profil">
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE SECTION 6 -->
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">Accessoires & Détails</h3>
+        <div class="image-grid">
+           <img src="télécharger (62).jpg" alt="Chemise officielle vue de face">
+      <img src="télécharger (63).jpg" alt="Chemise officielle vue de profil">
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE SECTION 7 -->
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">Témoignages Clients</h3>
+        <div class="image-grid">
+           <img src="Chemises habillées classiques à manches longues pour hommes, couleur unie_rayée, poche plaquée.jpg" alt="Chemise officielle vue de face">
+      <img src="b a b y g u r l.jpg" alt="Chemise officielle vue de profil">
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE SECTION 8 -->
+    <section>
+      <div class="image-section">
+        <h3 class="image-section-title">Événements & Promotions</h3>
+        <div class="image-grid">
+           <img src="b a b y g u r l.jpg" alt="Chemise officielle vue de face">
+      <img src="Classic Winter Casual Look buymypiece.jpg" alt="Chemise officielle vue de profil">
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / COMMAND SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="contact-container">
+        <div class="section-title">
+          <h2>Passer une Commande</h2>
+          <div class="divider"></div>
+          <p>Remplissez le formulaire ci-dessous pour commander ou fixer un rendez-vous</p>
+        </div>
+
+        <form id="contact-form" onsubmit="return handleFormSubmit(event);">
+          <div class="form-layout">
+            <!-- Informations Personnelles -->
+            <div class="form-group">
+              <label for="nom">Nom Complet *</label>
+              <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+            </div>
+
+            <div class="form-group">
+              <label for="prenom">Prénom *</label>
+              <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="votre@email.com">
+            </div>
+
+            <div class="form-group">
+              <label for="telephone">Téléphone *</label>
+              <input type="tel" id="telephone" name="telephone" required placeholder="+229 XX XX XX XX">
+            </div>
+
+            <div class="form-group">
+              <label for="adresse">Adresse Complète</label>
+              <input type="text" id="adresse" name="adresse" placeholder="Rue, Ville, Code Postal">
+            </div>
+
+            <div class="form-group">
+              <label for="entreprise">Entreprise (optionnel)</label>
+              <input type="text" id="entreprise" name="entreprise" placeholder="Nom de votre entreprise">
+            </div>
+
+            <!-- Type de Commande -->
+            <div class="form-group form-grid-2">
+              <label style="grid-column: 1 / -1; margin-bottom: 1rem;">Type de Livraison *</label>
+              <div>
+                <div class="radio-option">
+                  <input type="radio" id="livraison" name="delivery" value="livraison" checked>
+                  <label for="livraison"> Livraison à Domicile</label>
+                </div>
+              </div>
+              <div>
+                <div class="radio-option">
+                  <input type="radio" id="rendez-vous" name="delivery" value="rendez-vous">
+                  <label for="rendez-vous"> Rendez-vous en Magasin</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Détails Commande -->
+            <div class="form-group form-grid-2">
+              <div>
+                <label for="produit">Produit Intéressé *</label>
+                <select id="produit" name="produit" required>
+                  <option value="">-- Sélectionner un produit --</option>
+                  <option value="Robe Élégante - 45 000 FCFA">Robe Élégante - 45 000 FCFA</option>
+                  <option value="Chemise Chic - 28 000 FCFA">Chemise Chic - 28 000 FCFA</option>
+                  <option value="Costume Premium - 85 000 FCFA">Costume Premium - 85 000 FCFA</option>
+                  <option value="Jean Premium - 32 000 FCFA">Jean Premium - 32 000 FCFA</option>
+                  <option value="Ensemble Bébé - 22 000 FCFA">Ensemble Bébé - 22 000 FCFA</option>
+                  <option value="Autre produit">Autre produit</option>
+                </select>
+              </div>
+              <div>
+                <label for="quantite">Quantité *</label>
+                <input type="number" id="quantite" name="quantite" min="1" value="1" required>
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group form-grid-2">
+              <label for="message">Message / Question *</label>
+              <textarea id="message" name="message" required placeholder="Décrivez votre commande ou posez vos questions..."></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Confirmer ma Commande</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>La Maison Beninoise du Style</strong></p>
+    <p>📞 +33 1 23 45 67 89 |  faroucktundeadekambi@gmail.com</p>
+    <p>📍 123 Rue de la Mode, 75001 Paris | Lun-Ven 09:00-19:00 | Sam 10:00-17:00</p>
+    <p>© 2026 - 100% Produits Beninois | Livraison Rapide | Qualité Supérieure</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Quantity selectors
+    function increaseQty(btn) {
+      const qty = btn.parentElement.querySelector('.qty');
+      qty.textContent = parseInt(qty.textContent) + 1;
+    }
+
+    function decreaseQty(btn) {
+      const qty = btn.parentElement.querySelector('.qty');
+      const current = parseInt(qty.textContent);
+      if (current > 1) {
+        qty.textContent = current - 1;
+      }
+    }
+
+    // Add to cart
+    function addToCart(btn) {
+      const card = btn.closest('.product-card');
+      const name = card.querySelector('.product-name').textContent;
+      const price = card.querySelector('.product-price').textContent;
+      const qty = card.querySelector('.qty').textContent;
+      
+      alert(`✅ Ajouté au panier:\n${name}\nQuantité: ${qty}\nPrix unitaire: ${price}\n\nAllez à la section "Commander" pour finaliser votre commande!`);
+    }
+
+    // Form handler
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      const nom = document.getElementById('nom').value;
+      const email = document.getElementById('email').value;
+      const telephone = document.getElementById('telephone').value;
+      const delivery = document.querySelector('input[name="delivery"]:checked').value;
+      const produit = document.getElementById('produit').value;
+      const quantite = document.getElementById('quantite').value;
+      const message = document.getElementById('message').value;
+
+      const subject = encodeURIComponent(`Nouvelle Commande - ${nom}`);
+      const body = encodeURIComponent(
+        `Informations Personnelles:\n` +
+        `Nom: ${nom}\n` +
+        `Email: ${email}\n` +
+        `Téléphone: ${telephone}\n\n` +
+        `Type de Livraison: ${delivery === 'livraison' ? 'Livraison à Domicile' : 'Rendez-vous en Magasin'}\n` +
+        `Produit: ${produit}\n` +
+        `Quantité: ${quantite}\n\n` +
+        `Message:\n${message}`
+      );
+
+      window.location.href = `mailto:cfaroucktundeadekambi@gmail.com?subject=${subject}&body=${body}`;
+      return false;
+    }
+  </script>
+</body>
+</html>
